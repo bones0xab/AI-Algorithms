@@ -1,0 +1,23 @@
+//Iterative version
+
+def dfs_iterative(graph, start):
+    visited = set()
+    stack = [start]
+
+    while stack:
+        node = stack.pop()
+        if node not in visited:
+            print(node)  # Process node (e.g., print it)
+            visited.add(node)
+            # Add neighbors in reverse to visit them in the original order
+            stack.extend(reversed(graph[node]))
+
+---
+
+//Recursive version 
+def dfs_recursive(graph, node, visited=set()):
+    if node not in visited:
+        print(node)  # Process node (e.g., print it)
+        visited.add(node)
+        for neighbor in graph[node]:
+            dfs_recursive(graph, neighbor, visited)
