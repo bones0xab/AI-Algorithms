@@ -5,7 +5,7 @@ This is a repo for my educational courses about AI and the algorithms, also an o
 
 
 ## AI Module
-- Resolution of a problem
+# Resolution of a problem
   **La résolution d un problem dans un espace de possibilite utilisant des heuristiques , `[Etat initial]` jusqu au etat `[Etat final]`, en cherchant le meuilleur  chemin.**
 
 --- 
@@ -27,9 +27,18 @@ d : profondeur de etat but dans l arboresence.
 *Comlexite en temps : Estimation du temps necessaire pour resoudre un problem donne.
 *Complexite en memoire : Estimation de l espace memoire necessaire a l algo pour resoudre le problem.
 
-![image](https://github.com/user-attachments/assets/29b4616d-af09-4289-8073-7a2a51c3a59d)
+---
+## Algorithm general de recherch
+![image](https://github.com/user-attachments/assets/b73cb449-e70a-48b7-8546-21749022635a)
 
 ---
+## Concepts de base de recherche
+un algorithme de recherche repose sur les elements suivants : 
+-> Arboresence de recherch 
+-> Expansion d'un noeud
+-> Strategie de recherch : l etendre d un noeud a chaque etape
+
+
 
 ## Operational Search
 - 
