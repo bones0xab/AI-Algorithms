@@ -122,6 +122,7 @@ Tout information
 
  -Complexite en temps : Cette complexite est donne par le nombre de noeud testes
 `Noeud Teste = b*0 + b*1 ... + b*d`
+Ct(b,d) = b*0 + b*1 + ... + b*d = (b*(d+1) -1 )/(b - 1) = O(b*d)
 
 
 
@@ -132,7 +133,42 @@ Tout information
 
   en fair des estimation de la valeur de b* pour trouver une approximiter presque de nombre de noeud.
 
-- Algorithme DFS : 
+- Algorithm DFS : 
 ![image](https://github.com/user-attachments/assets/09ff1aba-02e2-4d90-af97-5056cfe15b5d)
+
+
+
+`Recherche limité`
+En trouve que le BFS utilise becaupe de memoire pour cela en travail juste avec le DFS dans la realite, mais le DFS manque de l optimalite au chemin , cad que le chemin peut etre loin d etre optimal.
+Donc pour cela on peut corrige cette problem par avoir la profondeur d ou se trouve l etat but.
+En limite la recherch a la profondeur h(limite) = d.
+
+
+- Recherche en profondeur limité
+  -> Startegie
+  En recherche avec une limite d exploitation L
+  le changement : 
+![image](https://github.com/user-attachments/assets/18cca8ed-8d84-4b56-a16e-b6f8ad4f3dbc)
+
+---
+
+-Recherche par approfondissement iteratif
+est un algorithme de recherche qui combine les avantages de la recherche en profondeur (DFS) et de la recherche en largeur (BFS). Cet algorithme est souvent utilisé dans les arbres ou les graphes lorsque la profondeur de la solution est inconnue et que la mémoire est une contrainte importante.
+
+Le processus : 
+Fixer une profondeur limite, notée 𝑑
+d, et d'explorer en profondeur jusqu'à cette limite en utilisant DFS.
+Incrémenter progressivement cette limite et relancer une recherche DFS jusqu'à atteindre cette nouvelle limite.
+Répéter ce processus jusqu'à ce qu'une solution soit trouvée ou que l'ensemble du graphe soit exploré.
+Chaque itération explore tous les chemins possibles jusqu'à la profondeur 
+𝑑
+d avant d'augmenter cette profondeur.
+
+![image](https://github.com/user-attachments/assets/8cd1cb88-ff6b-44e1-ad00-062ce11d923b)
+
+![image](https://github.com/user-attachments/assets/7cfbb6e5-fb5f-4fc0-9554-480c7dd35e71)
+![image](https://github.com/user-attachments/assets/59d56487-50b6-421f-b684-9fa4ae52ff3c)
+![image](https://github.com/user-attachments/assets/c02afc1c-e2b0-47e6-a685-47808452ee6c)
+
 
 ---
