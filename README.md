@@ -172,3 +172,120 @@ d avant d'augmenter cette profondeur.
 
 
 ---
+
+## Recherche informe ou heuristique
+-> Recherche A 
+C'est de donne une estimation du chemin complet (De noeud initial au final).
+
+** Fonction d'evaluation **
+f(n) = g(n) + h(n)
+![image](https://github.com/user-attachments/assets/41693d6d-42ff-452e-99d5-2565b0cb0d69)
+
+
+## Heuristique admissible (h)
+
+-En dit qu'une heuristique est admissible si pour tout noeud n(n)<h*(h)
+`h* le vrai cout pour atteindre etat but a partir de n`
+-Une heuristique admissible ne surestime jamais le cout pour atteindre le but E.I elle est optimal.
+
+* h est admissible alors la solution retourner par l algorithme est optimal*
+* Si on a h admissible donc A devient A* *
+
+***
+# CHATGPT
+# Différences entre BFS, DFS et les Algorithmes Heuristiques
+
+## 1. Qu'est-ce qu'une heuristique ?
+
+Une **heuristique** est une méthode ou une stratégie permettant de prendre des décisions rapides et efficaces dans un problème donné, en s'appuyant sur des **estimations** ou des **approximations** plutôt que sur des calculs exhaustifs.
+
+Dans les algorithmes, une heuristique est souvent une fonction qui aide à guider une recherche vers une solution potentielle plus rapidement, en exploitant des **connaissances spécifiques** sur le problème.
+
+---
+
+## 2. Différences entre BFS, DFS et les Algorithmes Heuristiques
+
+| **Critères**          | **BFS**                                  | **DFS**                                  | **Algorithmes Heuristiques**              |
+|-----------------------|-------------------------------------------|------------------------------------------|-------------------------------------------|
+| **Principe**          | Explore les nœuds par **niveau**          | Explore les nœuds en **profondeur**      | Utilise une fonction d'heuristique pour guider la recherche. |
+| **Optimalité**        | Trouve le chemin le plus court (dans graphes non pondérés). | Pas garanti de trouver le chemin optimal. | Peut trouver le chemin optimal avec une bonne heuristique. |
+| **Exploration**       | Systématique, **épuise tout** à chaque niveau. | Explore un chemin entièrement avant de revenir en arrière. | Oriente la recherche vers des solutions prometteuses, en évitant des parties inutiles. |
+| **Structure de données** | Utilise une **file**.                   | Utilise une **pile** ou récursivité.     | Souvent utilise une **file de priorité** (comme dans A\*). |
+| **Complexité spatiale** | Élevée (stocke de nombreux nœuds).       | Moins gourmande que BFS.                 | Dépend de l'heuristique et de la structure de données. |
+| **Exemples**          | Parcours d’un graphe, chemin le plus court. | Détection de cycles, exploration profonde. | A\* (A étoile), Algorithmes génétiques, etc. |
+
+---
+
+## 3. Algorithmes heuristiques : Fonctionnement et avantages
+
+Les algorithmes heuristiques, comme **A\*** ou les **algorithmes génétiques**, utilisent une fonction heuristique pour **estimer** le coût ou la distance vers l'objectif final.
+
+### Exemple : Algorithme A\*
+
+- **f(n) = g(n) + h(n)** :
+  - **g(n)** : coût du chemin réel depuis le nœud initial jusqu'au nœud \(n\).
+  - **h(n)** : estimation heuristique du coût restant pour atteindre l'objectif.
+- A\* explore les chemins qui **minimisent** cette fonction.
+
+### Avantages des algorithmes heuristiques :
+
+1. **Rapidité** : Ils permettent de réduire l'espace de recherche en se concentrant sur les chemins prometteurs.
+2. **Optimalité** : Avec une heuristique admissible (ne surestime jamais le coût), ils peuvent trouver des solutions optimales (comme A\*).
+3. **Efficacité** : Très utiles dans les grands espaces de recherche, comme les labyrinthes ou les jeux.
+
+---
+
+## 4. Comparaison en termes d'optimisation
+
+### BFS/DFS
+
+#### Avantages :
+- **Simple** à implémenter.
+- BFS garantit une solution optimale **dans des graphes non pondérés**.
+- DFS a une **faible empreinte mémoire** (surtout pour des graphes peu denses).
+
+#### Inconvénients :
+- Peu efficace pour des problèmes complexes avec de grands espaces de recherche.
+- BFS est **gourmand en mémoire**.
+- DFS peut explorer inutilement de longs chemins qui ne mènent pas à une solution.
+
+### Algorithmes heuristiques
+
+#### Avantages :
+- **Plus rapides** pour trouver une solution dans de **grands espaces de recherche**.
+- Peuvent être **optimaux** (sous conditions, comme avec A\*).
+- Moins de calculs exhaustifs, car ils exploitent des **estimations**.
+
+#### Inconvénients :
+- Dépendant de la **qualité de l'heuristique** : une mauvaise heuristique peut rendre l'algorithme inefficace.
+- Plus **complexe** à implémenter.
+
+---
+
+## 5. Quand choisir BFS/DFS ou des algorithmes heuristiques ?
+
+- **BFS** :
+  - Idéal pour des graphes **non pondérés** où on cherche le chemin le plus court.
+  - Quand on souhaite explorer tous les chemins possibles.
+
+- **DFS** :
+  - Utile pour des **parcours complets** (exploration de tous les chemins, détection de cycles).
+  - Fonctionne bien pour des graphes peu profonds ou lorsqu'on ne se soucie pas d'optimalité.
+
+- **Algorithmes heuristiques** (comme A\*) :
+  - Nécessaires pour des problèmes complexes où l'espace de recherche est vaste (par exemple, les **jeux**, les **labyrinthes**, ou les **systèmes GPS**).
+  - Quand une solution rapide **et** optimale est requise.
+
+---
+
+## Résumé
+
+- **Heuristique** : stratégie pour guider la recherche.
+- **BFS/DFS** : méthodes systématiques mais sans guidance spécifique.
+- **Algorithmes heuristiques** : permettent d’explorer efficacement et de résoudre des problèmes complexes avec potentiellement des solutions optimales.
+
+***
+
+- si h est admissible alors la solution 
+
+  
