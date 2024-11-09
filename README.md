@@ -184,7 +184,10 @@ f(n) = g(n) + h(n)
 
 ## Heuristique admissible (h)
 
--En dit qu'une heuristique est admissible si pour tout noeud n(n)<h*(h)
+-En dit qu'une heuristique est admissible si pour tout noeud h(n)<= h*(n)
+
+![image](https://github.com/user-attachments/assets/ab0377be-5675-490c-9fe7-43f9940438b3)
+
 `h* le vrai cout pour atteindre etat but a partir de n`
 -Une heuristique admissible ne surestime jamais le cout pour atteindre le but E.I elle est optimal.
 
@@ -286,6 +289,168 @@ Les algorithmes heuristiques, comme **A\*** ou les **algorithmes génétiques**,
 
 ***
 
-- si h est admissible alors la solution 
+- Si h est admissible alors la solution retourne par l algo A est optimale.
+- H admissible donc A devient A*
 
+***
+# CHATGPT
+# Fonctionnement de l'algorithme A\* dans le cadre heuristique
+
+## 1. Principes fondamentaux
+
+L'algorithme **A\*** (A étoile) est un algorithme de **recherche informée** qui combine la recherche basée sur le coût réel avec une **heuristique** pour trouver le chemin optimal dans un graphe. Il cherche à minimiser la fonction de coût suivante pour chaque nœud \(n\) :
+
+\[
+f(n) = g(n) + h(n)
+\]
+
+- **\(g(n)\)** : Coût exact depuis le nœud de départ jusqu'au nœud \(n\).
+- **\(h(n)\)** : Estimation heuristique du coût pour aller de \(n\) au nœud objectif (destination).
+- **\(f(n)\)** : Estimation du coût total du chemin passant par \(n\).
+
+L'algorithme explore en priorité les nœuds ayant la plus petite valeur de \(f(n)\).
+
+---
+
+## 2. Fonctionnement étape par étape
+
+### Étape 1 : Initialisation
+- Placez le **nœud de départ** dans une **file de priorité**, qui trie les nœuds en fonction de leur valeur \(f(n)\).
+- Initialisez \(g(n)\) pour le nœud de départ à 0 et \(h(n)\) à la valeur heuristique estimée.
+
+### Étape 2 : Parcours des nœuds
+1. **Extraire** le nœud \(n\) avec la plus faible valeur \(f(n)\) de la file.
+2. Si ce nœud est le **nœud objectif**, le chemin optimal est trouvé.
+3. Sinon :
+   - Marquez \(n\) comme **exploré** (déplacé dans une file fermée).
+   - Pour chaque **voisin** \(v\) de \(n\) :
+     - Calculez le **coût temporaire** du chemin \(g(v)\) via \(n\) :
+       \[
+       g(v) = g(n) + \text{coût(n, v)}
+       \]
+     - Calculez \(f(v) = g(v) + h(v)\).
+     - Si \(v\) n'a pas encore été exploré ou si \(f(v)\) est meilleur que la valeur précédente, mettez à jour \(g(v)\) et ajoutez (ou mettez à jour) \(v\) dans la file ouverte.
+
+### Étape 3 : Répéter
+Répétez les étapes jusqu'à atteindre le **nœud objectif** ou que la **file ouverte** soit vide (ce qui signifie qu'il n'y a pas de chemin).
+
+---
+
+## 3. Rôle de l'heuristique (\(h(n)\))
+
+L'heuristique aide à orienter la recherche vers les solutions prometteuses. Elle doit respecter deux propriétés clés :
+
+- **Admissibilité** : \(h(n)\) ne doit jamais **surestimer** le coût réel vers l'objectif.
+  - Exemple : La **distance à vol d'oiseau** est une heuristique admissible dans les graphes géographiques.
   
+- **Consistance** (ou monotonicité) : Pour tout nœud \(n\) et son successeur \(m\), l'heuristique doit respecter :
+  \[
+  h(n) \leq \text{coût(n, m)} + h(m)
+  \]
+
+Si ces propriétés sont respectées :
+- **Optimalité garantie** : A\* trouvera un chemin optimal.
+- **Efficacité** : La recherche est plus rapide, car elle évite d'explorer des chemins inutiles.
+
+---
+
+## 4. Comparaison avec BFS
+
+| **Critères**       | **BFS**                           | **A\***                          |
+|--------------------|------------------------------------|----------------------------------|
+| **Principe**       | Explore tous les nœuds par niveau | Oriente la recherche avec \(h(n)\) |
+| **Optimalité**     | Optimal dans graphes non pondérés  | Optimal si \(h(n)\) est admissible |
+| **Efficacité**     | Explore tout                     | Explore les chemins prometteurs |
+| **Structure de données** | File (queue)              | File de priorité                |
+
+### Points clés :
+- **BFS** explore tous les nœuds et garantit le plus court chemin **dans un graphe non pondéré**.
+- **A\*** est plus efficace, surtout dans les **grands graphes pondérés**, car il exploite une heuristique.
+
+---
+
+## 5. Avantages de l'algorithme A\*
+
+1. **Optimalité garantie** (si l'heuristique est admissible et consistante).
+2. **Flexibilité** : Peut s'adapter à différents types de problèmes avec des heuristiques spécifiques.
+3. **Efficacité** : Réduit le nombre de nœuds explorés par rapport à BFS.
+
+---
+
+## 6. Exemple d'application
+
+Dans un **système GPS**, A\* est utilisé pour calculer le chemin optimal :
+- **\(g(n)\)** représente la distance déjà parcourue.
+- **\(h(n)\)** est une estimation de la distance restante (par exemple, distance euclidienne ou "à vol d'oiseau").
+- Le système peut rapidement trouver le chemin le plus court tout en évitant les chemins non prometteurs.
+
+---
+
+## Résumé
+
+- **A\*** est un algorithme de recherche informée qui combine le coût réel \(g(n)\) et une estimation heuristique \(h(n)\).
+- Il est plus rapide et plus efficace que BFS dans des problèmes complexes tout en garantissant une solution optimale si l'heuristique est correcte.
+- Il est largement utilisé dans des domaines comme les **jeux vidéo**, la **robotique** ou les **systèmes de navigation**.
+
+***
+
+
+RQ : l heuristique la meuilleur qui a la plus temps vite.
+
+`- The goal of the algorithm A c est la minimisation de cout total estime `
+
+Min {f(n) = g(n) + h(n)}
+g : Cout  de chemin allant d un noeud de depart au noeud courant.
+h : Cout estime d un noeud au noeud destination.
+
+h* : en connais tout (cout reel)
+h : en connais mais n est pas tout
+
+***
+
+## Heuristique consistente.
+Une heuristique est consistente si pour chaque noeud n et  successeurs n' generes par une action verifie : 
+
+- H(n) <= H(n') + C(n,a,n')
+  C : cout d'action allez de n a n'.
+  a : action d un noeud au suivant.
+
+
+- Optimalite de algo A* : 
+Signifie aue trouver toujours le chemin le plus court entre le noeud depart et noeud destination sur la condition d'admissibilite :` h(n) <= h(n)*`
+
+et la consistance aussi il faut de verifie la condition : 
+`h(n) <= cout(n,m) + h(m)`
+
+* Si une heuristique est consistante, elle est automatiquement admissible donc A* optimale *
+
+***
+
+## Algorithm Dijkstra
+
+L'algorithme de Dijkstra est une méthode efficace pour trouver le chemin le plus court entre un nœud source et tous les autres nœuds d'un graphe pondéré (où les arêtes ont des poids positifs).
+(En passe et si on a trouver encore un entre plus optimale en le remplace en elle et contnue ensuite jusqu au dernier)
+
+`RQ : un noeud explorer si en le remplace de OUVERT a FERME et un noeud tester si elle est dans ouvert`
+
+`RQ : Dans les noeuds si on trouver l etat but dans la file on compte avec les etat tester`
+
+`RQ : Dans cette algorithme en calcule le cout de etat but vers etat initial en suite en Faire le tablaux de OUVERT et FERME et commance par Etat initial.`
+
+***
+
+# Algorithm de SMA*
+- Objectif de trouver un chemin optimal tout en limitant la memoire a une quentite definie.
+- Elle fonctione exactement comme A*
+- Quand en atteint la limite k noeuds on retire le noeud don t la valeur f(n) est le plus eleve .
+- Avant de retirer un noeud en enregistre ses valeur au niveau de son parent
+- si on a plusieur noeud de meme valeur et succeptible d etre elimines en retire le plus encien.
+- s il y a plusieur noeuds de m valeur susceptibles etre etendu on choisie le plus recent.
+
+  `The form (lettre , paire , f , g , -)
+  Exemple 
+![image](https://github.com/user-attachments/assets/671cf35f-754a-4f1c-b928-e9b7a238d4ec)
+
+
+
+
