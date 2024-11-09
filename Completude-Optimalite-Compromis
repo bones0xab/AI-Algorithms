@@ -1,0 +1,64 @@
+### Définition des concepts fondamentaux : **Complétude**, **Optimalité**, et **Complexité** d'un algorithme
+
+---
+
+## 1. **Complétude**
+
+La **complétude** d’un algorithme fait référence à sa capacité à **trouver une solution** si une solution **existe**.
+
+### Un algorithme est **complet** si :
+- Il garantit qu'il trouvera une solution pour **tous les problèmes résolvables**.
+- Si aucune solution n'existe, il pourra le détecter (dans certains cas, en explorant tout l'espace de recherche).
+
+### Exemples :
+- **BFS** (parcours en largeur) est **complet** : il explore systématiquement tous les nœuds et trouvera une solution si elle existe.
+- **DFS** (parcours en profondeur) **n'est pas complet** dans sa version classique sans limitation de profondeur : il peut rester bloqué dans des branches infinies même si une solution existe ailleurs.
+
+---
+
+## 2. **Optimalité**
+
+L’**optimalité** d’un algorithme indique sa capacité à trouver la **meilleure solution** (en termes de coût ou de qualité) parmi toutes les solutions possibles.
+
+### Un algorithme est **optimal** si :
+- Lorsqu'il trouve une solution, c'est toujours la solution **minimale en coût** ou **maximale en qualité**.
+
+### Exemples :
+- **BFS** est optimal **pour les graphes non pondérés** (il trouve le chemin avec le plus petit nombre d’arêtes).
+- **A\*** est optimal si l’**heuristique utilisée** est **admissible** (elle ne surestime jamais le coût réel) et **consistante**.
+- **DFS** n'est pas optimal : il peut trouver une solution, mais pas nécessairement la meilleure.
+
+---
+
+## 3. **Complexité** (Temps et Mémoire)
+
+### a. **Complexité temporelle** :
+La **complexité temporelle** mesure le **temps d'exécution** de l'algorithme en fonction de la taille du problème (nombre de nœuds ou d'états à explorer).
+
+- **Notation courante** : \(O(n)\), \(O(n^2)\), etc.
+- Par exemple, BFS a une complexité temporelle de \(O(b^d)\), où \(b\) est le facteur de branchement et \(d\) est la profondeur de la solution.
+
+### b. **Complexité spatiale** :
+La **complexité spatiale** mesure l'**espace mémoire** nécessaire pour exécuter l'algorithme.
+
+- BFS utilise beaucoup de mémoire : \(O(b^d)\) (il stocke tous les nœuds de chaque niveau).
+- DFS est plus économe en mémoire : \(O(d)\) (stocke uniquement les nœuds le long du chemin actuel).
+
+---
+
+### Tableau récapitulatif
+
+| **Propriété**     | **BFS**        | **DFS**        | **A\***       |
+|-------------------|----------------|----------------|---------------|
+| **Complétude**    | Oui            | Non (sans limite) | Oui           |
+| **Optimalité**    | Oui (non pondéré) | Non            | Oui (avec heuristique admissible) |
+| **Complexité temporelle** | \(O(b^d)\)  | \(O(b^m)\)    | \(O(b^d)\)    |
+| **Complexité spatiale**   | \(O(b^d)\)  | \(O(d)\)      | \(O(b^d)\)    |
+
+---
+
+### En résumé :
+
+- **Complétude** : L’algorithme trouve-t-il toujours une solution si elle existe ?
+- **Optimalité** : L’algorithme trouve-t-il la **meilleure solution** (chemin avec le coût minimal) ?
+- **Complexité** : Combien de temps et de mémoire l’algorithme consomme-t-il pour résoudre le problème ?
