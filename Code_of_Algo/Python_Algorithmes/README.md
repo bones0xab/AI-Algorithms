@@ -2,20 +2,20 @@
 --- 
 
 **Explication of the Algorithm** First of all BFS is an algorithm of non 
-informational process, where he test the noeuds each one from the top to bottom ( length path ).
+informational process, where he test the nods each one from the top to bottom ( length path ).
 
 Let's explain more detaily :
 
--> Imagine you have a graph start with A and the user choose as destination I. 
-(See the graph in bottom)
+-> Imagine you have a graph starting with A and the user chooses as destination I. 
+(See the graph in the bottom)
 
 ![image](https://github.com/user-attachments/assets/3de6870f-6da5-4ede-bb67-b203af948daa)
 
 
-The BFS start from the top A and use a queue for hundle the nodes in process,
-If a node is tested and their children are in the queue, we can use the methode of colors or we made it in the Close and tested nodes and vice versa...
+The BFS starts from the top A and uses a queue for handle the nodes in process,
+If a node is tested and its children are in the queue, we can use the method of colors or we made it in the Close and tested nodes and vice versa...
 
-Also i want to explain that when we made for example A in the queue and next we replace it into the closed nodes and insert their children (we mading the attention to the ordre of the alphabets !!!) and so one ...
+Also i want to explain that when we made for example A in the queue and next we replaced it into the closed nodes and inserted their children (we paid the attention to the order of the alphabet!!!) and so one ...
 
 This is the code : 
 
@@ -61,7 +61,7 @@ def Iterative_bfs(graph, start, end):
                     disctance.append((node,n[1] + 1))
     return set(disctance),visited
 
-#a problem with the non oriented graph is he repeat some nodes and i will make to the list a set to see the good results
+#a problem with the non-oriented graph is he repeats some nodes and i will make to the list a set to see the good results
 #BFS with Final State
 print(Iterative_bfs(Graph,'A','P'))
 
@@ -70,23 +70,24 @@ print(Iterative_bfs(Graph,'A','P'))
 
 ***
 
-#Write Up of DFS
+# Write Up of DFS
 --- 
 
 **Explication of the algo**
 
-This DFS is also a non informational algorithm, where he search fot the goal or destination,
+This DFS is also a non-informational algorithm, where he search fot the goal or destination,
 deeply, not like the BFS.
 
-Let me give detailed explication for better understanding.
+Let me give a detailed explication for better understanding.
 
-DFS use the LIFO concept, where he insert the start first then he take it to the Visited nodes, 
-also he take their children element by element (mading the attention to the order of alphabet).
+DFS use the LIFO concept, where he inserts the start first then he take it to the Visited nodes, 
+also he take their children element by element (mading attention to the order of alphabet).
 
-as well, we get off the node in top, and get into the visited part and vice versa untill we reach the destination.
+we also get off the node in top and get into the visited part and vice versa until we reach the destination.
 
 This is the Graph example of the DFS algorithm.
 
+![image](https://github.com/user-attachments/assets/77882ff8-515f-4fbf-9dff-4da7258ae7d1)
 
 
 ```python 
