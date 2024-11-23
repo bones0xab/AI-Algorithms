@@ -8,6 +8,9 @@ Let's explain more detaily :
 -> Imagine you have a graph start with A and the user choose as destination I. 
 (See the graph in bottom)
 
+![image](https://github.com/user-attachments/assets/3de6870f-6da5-4ede-bb67-b203af948daa)
+
+
 The BFS start from the top A and use a queue for hundle the nodes in process,
 If a node is tested and their children are in the queue, we can use the methode of colors or we made it in the Close and tested nodes and vice versa...
 
