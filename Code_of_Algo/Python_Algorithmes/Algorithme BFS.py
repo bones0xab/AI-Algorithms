@@ -4,7 +4,7 @@ from collections import deque
 Graph = {
     'A' : ['B','F'],
     'B' : ['A','C','D','G'],
-    'C': ['B','E'],
+    'C':  ['B','E'],
     'D' : ['B','I'],
     'E' : ['C','I'],
     'F' : ['A','G','H'],
