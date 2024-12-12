@@ -440,6 +440,8 @@ L'algorithme de Dijkstra est une méthode efficace pour trouver le chemin le plu
 ***
 
 # Algorithm de SMA*
+---
+- HI.
 - Objectif de trouver un chemin optimal tout en limitant la memoire a une quentite definie.
 - Elle fonctione exactement comme A*
 - Quand en atteint la limite k noeuds on retire le noeud don t la valeur f(n) est le plus eleve .
