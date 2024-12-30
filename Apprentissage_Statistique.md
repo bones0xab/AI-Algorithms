@@ -35,3 +35,13 @@ L'image illustre les concepts fondamentaux d'un **Processus Décisionnel de Mark
 Points importants :
 Une politique doit couvrir tous les états possibles ou, à défaut, les états pertinents (accessibles).
 Politique optimale : La politique qui maximise les récompenses cumulées (à long terme), en tenant compte des incertitudes.
+---
+
+## Rewards.
+---
+
+The rewards are the indicator to the agent or the player , the quality of his steps, they are good or bad ? , when we have higher reward,
+it s a good decision, when we have bad it s a not good decision.
+
+---
+
