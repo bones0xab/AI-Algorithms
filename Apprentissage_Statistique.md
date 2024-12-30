@@ -30,3 +30,8 @@ L'image illustre les concepts fondamentaux d'un **Processus Décisionnel de Mark
 6. **Objectif** :  
    - Maximiser les récompenses cumulées à long terme en choisissant une politique optimale.
 
+---
+
+Points importants :
+Une politique doit couvrir tous les états possibles ou, à défaut, les états pertinents (accessibles).
+Politique optimale : La politique qui maximise les récompenses cumulées (à long terme), en tenant compte des incertitudes.
